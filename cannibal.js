@@ -1,4 +1,4 @@
-var BOOT_SIZE = 2;
+var BOAT_SIZE = 2;
 
 function init(n) {
   var state = {
@@ -42,14 +42,11 @@ function get_children(candidate) {
   var side  = state[state.boat];
   var other_side = get_other_side(state.boat);
 
-  //console.log('state', state);
-  //console.log('side', side);
-
   for (var c = 0; c <= side.cannibal; c++) {
-    if (c > BOOT_SIZE) continue;
+    if (c > BOAT_SIZE) continue;
     for (var m = 0; m <= side.missionary; m++) {
         if (c == 0 && m ==0) continue;
-        if (c + m > BOOT_SIZE) break;
+        if (c + m > BOAT_SIZE) break;
         if (m > 0 && c > m) continue;
         var obj = {
             from: candidate,
